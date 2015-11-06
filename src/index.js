@@ -12,6 +12,8 @@ const lineArtLoader = (source) => {
     });
 };
 
+export default lineArtLoader;
+
 // TODO: move to test
 // fs.readFile('./test.svg', (err, file) => lineArtLoader(file.toString()));
 
