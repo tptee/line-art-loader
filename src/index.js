@@ -1,7 +1,7 @@
 import jsdom from 'jsdom';
 import fs from 'fs';
 
-const lineArtLoader = (source) => {
+export default function lineArtLoader(source) {
     this.cacheable();
     const cb = this.async();
     jsdom.env(source, [], (err, window) => {
@@ -11,8 +11,6 @@ const lineArtLoader = (source) => {
         cb(null, art);
     });
 };
-
-export default lineArtLoader;
 
 // TODO: move to test
 // fs.readFile('./test.svg', (err, file) => lineArtLoader(file.toString()));
