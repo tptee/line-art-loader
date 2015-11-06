@@ -1,0 +1,11 @@
+node_modules
+bower_components
+css/app.css
+js/dist/app.js
+resume.html
+resume.pdf
+app.css
+app.css.map
+app.js
+app.js.map
+index.html

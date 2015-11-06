@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "__DEV__": true
+  },
+  "rules": {
+    "quotes": [1, "single", "avoid-escape"],
+    "jsx-quotes": [1, "prefer-single"],
+    "indent": [2, 4],
+    "id-length": [0]
+    "semi": [2, "always"],
+  }
+}

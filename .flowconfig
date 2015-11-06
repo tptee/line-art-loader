@@ -1,0 +1,14 @@
+[ignore]
+bower_components/*
+fonts/*
+images/*
+scss/*
+.*/node_modules/*.
+
+[include]
+
+[libs]
+interfaces/
+
+[options]
+module.system=node
