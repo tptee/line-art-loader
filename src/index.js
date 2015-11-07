@@ -5,6 +5,8 @@ export default function lineArtLoader(source) {
     this.cacheable();
     const cb = this.async();
     jsdom.env(source, [], (err, window) => {
+        if (err) { throw err; }
+
         const art = new Pathformer(
             window.document.querySelector('svg'), window
         ).scan().outerHTML;
@@ -34,7 +36,7 @@ class Pathformer {
 
         // This mutates the original svg
         Array.from(elements).forEach((element) => {
-            const fn = this[element.tagName.toLowerCase() + 'ToPath'];
+            const fn = this[element.tagName.toLowerCase() + 'ToPath'].bind(this);
             const pathData = fn(this.parseAttr(element.attributes));
             const pathDom = this.pathMaker(element, pathData);
             element.parentNode.replaceChild(pathDom, element);
@@ -136,7 +138,9 @@ class Pathformer {
         }
 
         for (i in pathData) {
-            pathTag.setAttribute(i, pathData[i]);
+            if (pathData.hasOwnProperty(i)) {
+                pathTag.setAttribute(i, pathData[i]);
+            }
         }
 
         return pathTag;

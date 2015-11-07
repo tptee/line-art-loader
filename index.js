@@ -24,6 +24,10 @@ function lineArtLoader(source) {
     this.cacheable();
     var cb = this.async();
     _jsdom2['default'].env(source, [], function (err, window) {
+        if (err) {
+            throw err;
+        }
+
         var art = new Pathformer(window.document.querySelector('svg'), window).scan().outerHTML;
         cb(null, art);
     });
@@ -62,7 +66,7 @@ var Pathformer = (function () {
 
             // This mutates the original svg
             Array.from(elements).forEach(function (element) {
-                var fn = _this[element.tagName.toLowerCase() + 'ToPath'];
+                var fn = _this[element.tagName.toLowerCase() + 'ToPath'].bind(_this);
                 var pathData = fn(_this.parseAttr(element.attributes));
                 var pathDom = _this.pathMaker(element, pathData);
                 element.parentNode.replaceChild(pathDom, element);
@@ -167,7 +171,9 @@ var Pathformer = (function () {
             }
 
             for (i in pathData) {
-                pathTag.setAttribute(i, pathData[i]);
+                if (pathData.hasOwnProperty(i)) {
+                    pathTag.setAttribute(i, pathData[i]);
+                }
             }
 
             return pathTag;
