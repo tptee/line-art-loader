@@ -21,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tyler Paul Thompson <tyler@tylerpaulthompson.com>",
-  "license": "MIT"
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:tptee/line-art-loader.git"
@@ -40,5 +40,5 @@
   "bugs": {
     "url": "https://github.com/tptee/line-art-loader/issues"
   },
-  "homepage": "https://github.com/tptee/line-art-loader",
+  "homepage": "https://github.com/tptee/line-art-loader"
 }
