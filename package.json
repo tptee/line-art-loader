@@ -4,8 +4,7 @@
   "description": "Loads inline SVG files with all nodes converted to paths",
   "main": "index.js",
   "dependencies": {
-    "jsdom": "^7.0.2",
-    "svg-inline-loader": "^0.3.0"
+    "jsdom": "^7.0.2"
   },
   "devDependencies": {
     "babel-core": "^5.8.30",
@@ -13,9 +12,6 @@
     "eslint": "^1.1.0",
     "eslint-config-airbnb": "^0.1.0",
     "eslint-plugin-react": "^3.6.3"
-  },
-  "peerDependencies": {
-    "react": "0.14.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
